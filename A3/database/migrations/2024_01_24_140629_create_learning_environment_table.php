@@ -18,8 +18,12 @@ return new class extends Migration
             $table->integer('area_mt2')->nullable()->comment('Area en mt2');
             $table->integer('floor')->comment('Piso');
             $table->integer('inventory')->comment('Inventario');
-            $table->foreignId('id_type')->constrained('environmet_type');
-            $table->foreignId('id_location')->constrained('location');
+            $table->foreignId('id_type')->constrained('environmet_type')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
+            $table->foreignId('id_location')->constrained('location')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             $table->string('status')->comment('Estado: ACTIVO, INACTIVO');
             $table->timestamps();
         });

@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_course')->unique()->comment('Ficha');
             $table->string('shift')->comment('Jornada: DIURNA, MIXTA, NOCTURNA');
-            $table->foreignId('id_career')->constrained('career');
+            $table->foreignId('id_career')->constrained('career')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             $table->date('initial_date')->comment('Fecha inicial');
             $table->date('final_date')->comment('Fecha final');
             $table->string('status')->comment('Estado: LECTIVA, PRODUCTIVA, INDUCCIÓN');

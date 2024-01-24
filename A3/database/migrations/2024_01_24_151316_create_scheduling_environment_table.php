@@ -13,12 +13,18 @@ return new class extends Migration
     {
         Schema::create('scheduling_environment', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_course')->constrained('course');
-            $table->foreignId('id_instructor')->constrained('instructor');
+            $table->foreignId('id_course')->constrained('course')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
+            $table->foreignId('id_instructor')->constrained('instructor')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             $table->date('date_scheduling')->comment('Fecha de planificación');
             $table->time('initial_hour')->comment('Hora inicial');
             $table->time('final_hour')->comment('Hora final');
-            $table->foreignId('id_environment')->constrained('learning_environment');
+            $table->foreignId('id_environment')->constrained('learning_environment')
+                    ->onDelete('cascade')
+                    ->onUpdate('cascade');
             $table->timestamps(); 
         });
     }
