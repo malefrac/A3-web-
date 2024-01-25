@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('id_type')->constrained('environmet_type')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
-            $table->foreignId('id_location')->constrained('location')
+            $table->foreignId('id_location')->constrained('location_table')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
             $table->string('status')->comment('Estado: ACTIVO, INACTIVO');
