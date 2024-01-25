@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('learning_environment', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->comment('Nombre del ambiente');
+            $table->string('name', 50)->comment('Nombre del ambiente');
             $table->integer('capacity')->nullable()->comment('Capacidad');
             $table->integer('area_mt2')->nullable()->comment('Area en mt2');
-            $table->integer('floor')->comment('Piso');
+            $table->string('floor')->comment('Piso');
             $table->integer('inventory')->comment('Inventario');
             $table->foreignId('id_type')->constrained('environmet_type')
                     ->onDelete('cascade')
