@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('course', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_course')->unique()->comment('Ficha');
+            $table->integer('code')->unique()->comment('Ficha');
             $table->string('shift')->comment('Jornada: DIURNA, MIXTA, NOCTURNA');
-            $table->foreignId('id_career')->constrained('career')
+            $table->foreignId('career_id')->constrained('career')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
             $table->date('initial_date')->comment('Fecha inicial');

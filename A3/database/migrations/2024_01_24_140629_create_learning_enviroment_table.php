@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('learning_environment', function (Blueprint $table) {
+        Schema::create('learning_enviroment', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50)->comment('Nombre del ambiente');
             $table->integer('capacity')->nullable()->comment('Capacidad');
             $table->integer('area_mt2')->nullable()->comment('Area en mt2');
             $table->string('floor')->comment('Piso');
             $table->integer('inventory')->comment('Inventario');
-            $table->foreignId('id_type')->constrained('environmet_type')
+            $table->foreignId('type_id')->constrained('enviroment_type')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
-            $table->foreignId('id_location')->constrained('location_table')
+            $table->foreignId('location_id')->constrained('location')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
             $table->string('status')->comment('Estado: ACTIVO, INACTIVO');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('learning_environment');
+        Schema::dropIfExists('learning_enviroment');
     }
 };

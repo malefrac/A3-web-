@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('scheduling_environment', function (Blueprint $table) {
+        Schema::create('scheduling_enviroment', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_course')->constrained('course')
+            $table->foreignId('course_id')->constrained('course')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
-            $table->foreignId('id_instructor')->constrained('instructor')
+            $table->foreignId('instructor_id')->constrained('instructor')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
             $table->date('date_scheduling')->comment('Fecha de planificación');
             $table->time('initial_hour')->comment('Hora inicial');
             $table->time('final_hour')->comment('Hora final');
-            $table->foreignId('id_environment')->constrained('learning_environment')
+            $table->foreignId('enviroment_id')->constrained('learning_enviroment')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
             $table->timestamps(); 
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('scheduling_environment');
+        Schema::dropIfExists('scheduling_enviroment');
     }
 };

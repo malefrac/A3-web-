@@ -2,21 +2,21 @@
 
 namespace Database\Seeders;
 
-use App\Models\location;
+use App\Models\Location;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class LocationSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+    
     public function run(): void
     {
-        location::insert([
-        ['description'=> 'Sagrado corazón', 'address' => 'Cra 25 #24-47', 'status' => 'Activo'],
-        ['description'=> 'Colegio Salesiano', 'address' => 'Cl. 34 #Cra26', 'status' => 'Activo'],
-        ['description'=> 'Clem', 'address' => 'Km/2 vía Tuluá - Buga ', 'status' => 'Inactivo'],
+        Location::insert([
+
+            ['name' => 'Sagrado Corazon' , 'address' => 'Cra 25 # 24-47' , 'status' => 'Activo'],
+            ['name' => 'Colegio Salesiano' , 'address' => 'CL. 34 # Cra 26' , 'status' => 'Activo'],
+            ['name' => 'CLEM' , 'address' => 'Km 2 vía Tuluá - Buga' , 'status' => 'Inactivo']
+
         ]);
     }
 }

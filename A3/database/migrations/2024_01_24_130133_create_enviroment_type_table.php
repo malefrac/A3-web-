@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('environmet_type', function (Blueprint $table) {
+        Schema::create('enviroment_type', function (Blueprint $table) {
             $table->id();
             $table->string('description')->comment('Tipo de ambiente');
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('environmet_type');
+        Schema::dropIfExists('enviroment_type');
     }
 };
