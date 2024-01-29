@@ -52,6 +52,8 @@ class DatabaseSeeder extends Seeder
         //$this->call(TestEnviromentTypeSeeder::class);
        // $this->call(TestLocationSeeder::class);
        //$this->call(TestCareerSeeder::class);
+       //$this->call(TestInstructorSeeder::class);
+       $this->call(TestLearningEnviromentSeeder::class);
 
     }
 }
