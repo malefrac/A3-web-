@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class EnviromentType extends Model
 {
     use HasFactory;
-    protected $table = 'environmet_type';
+    protected $table = 'enviroment_type';
     protected $fillable = [
         'description',
     ];
