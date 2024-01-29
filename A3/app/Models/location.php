@@ -10,5 +10,15 @@ class Location extends Model
     use HasFactory;
 
     protected $table = 'location';
+    protected $fillable = [
+        'name',
+        'address',
+        'status'
+    ];
+
+    public function learning_enviroment()
+    {
+        return $this->hasMany(LearningEnviroment::class);
+    }
 
 }

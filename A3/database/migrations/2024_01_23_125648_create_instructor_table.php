@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('document')->unique()->comment('Cédula');
             $table->string('fullname')->comment('Nombre del instructor');
             $table->string('sena_email')->unique()->comment('Correo sena');
-            $table->string('personal_email')->unique()->unique()->comment('Correo personal');
+            $table->string('personal_email')->unique()->comment('Correo personal');
             $table->string('phone')->nullable()->comment('Teléfono');
             $table->string('password')->comment('Contraseña de acceso');
             $table->string('type')->comment('Tipo de contrato: PLANTA, CONTRATISTA');

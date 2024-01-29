@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class EnviromentType extends Model
 {
     use HasFactory;
+    protected $table = 'environmet_type';
+    protected $fillable = [
+        'description',
+    ];
 
-    protected $table = 'enviroment_type';
-
+    public function learning_enviroments()
+    {
+        return $this->hasMany(LearningEnviroment::class);
+    }
 }
