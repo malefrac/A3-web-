@@ -23,8 +23,7 @@ class TestInstructorSeeder extends Seeder
             $instructor->password = 'password';
             $instructor->type = 'Planta';
             $instructor->profile = 'Programador';
-            $instructor->save();
-    
+            $instructor->save();   
         
     }
 }

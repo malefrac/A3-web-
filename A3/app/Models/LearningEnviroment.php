@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class LearningEnviroment extends Model
 {
     use HasFactory;
+    protected $table = 'learning_enviroment';
     protected $fillable = [
         'name',
         'capacity',

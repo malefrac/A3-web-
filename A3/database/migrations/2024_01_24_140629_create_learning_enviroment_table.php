@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name', 50)->comment('Nombre del ambiente');
             $table->integer('capacity')->nullable()->comment('Capacidad');
             $table->integer('area_mt2')->nullable()->comment('Area en mt2');
-            $table->string('floor')->comment('Piso');
-            $table->integer('inventory')->comment('Inventario');
+            $table->integer('floor')->comment('Piso');
+            $table->string('inventory')->comment('Inventario');
             $table->foreignId('type_id')->constrained('enviroment_type')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
