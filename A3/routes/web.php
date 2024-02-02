@@ -89,5 +89,17 @@ Route::get('/location/edit', function () {
     return view('location.edit');
 })->name('location.edit');
 
+Route::get('/instructor/create', function () {
+    return view('instructor.create');
+})->name('instructor.create');
+
+Route::get('/instructor/index', function () {
+    return view('instructor.index');
+})->name('instructor.index');
+
+Route::get('/instructor/edit', function () {
+    return view('instructor.edit');
+})->name('instructor.edit');
+
 
 
