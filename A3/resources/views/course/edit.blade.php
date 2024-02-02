@@ -48,8 +48,13 @@
                     </div>
                     <div class="col-lg-4 mb-4">
                         <label for="status">Estado</label>
-                        <input type="text" class="form-control"
-                        id="status" name="status" required>    
+                        <select name="shift" id="shift"
+                        class="form-control" required>
+                        <option value="Seleccionar">Seleccionar</option>
+                        <option value="Lectiva">Lectiva</option>
+                        <option value="Productiva">Productiva</option>
+                        <option value="Inducción">Inducción</option> 
+                        </select>
                     </div>
                 </div>
 

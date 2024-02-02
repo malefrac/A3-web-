@@ -1,6 +1,6 @@
 @extends('templates.base')
-@section('title', 'Crear tipo de ambiente')
-@section('header', 'Crear tipo de ambiente')
+@section('title', 'Crear carrera')
+@section('header', 'Crear carrera')
 @section('content')
     @include('templates.messages')
     <div class="row">
@@ -8,10 +8,19 @@
             <form action="#" method="POST">
                 @csrf
                 <div class="row form-group">
-                    <div class="col-lg-12 mb-4">
-                        <label for="description">Descripción</label>
+                    <div class="col-lg-6 mb-4">
+                        <label for="name">Nombre</label>
                         <input type="text" class="form-control"
-                        id="description" name="description" required>    
+                        id="name" name="name" required>    
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <label for="type">Tipo</label>
+                        <select name="shift" id="shift"
+                        class="form-control" required>
+                        <option value="Seleccionar">Seleccionar</option>
+                        <option value="Lectiva">Técnico</option>
+                        <option value="Productiva">Tecnólogo</option>
+                        </select>   
                     </div>
                 </div>
                 <div class="row form-group">
@@ -21,7 +30,7 @@
                         </button>                        
                     </div>
                     <div class="col-lg-6 mb-4">
-                        <a href="{{ route('enviroment_type.index') }}" class="btn btn-secondary btn-block">
+                        <a href="{{ route('career.index') }}" class="btn btn-secondary btn-block">
                             Cancelar
                         </a> 
                     </div>
@@ -30,5 +39,6 @@
         </div>
     </div>
 @endsection
+
 
 

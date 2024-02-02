@@ -53,9 +53,6 @@
                         <select name="location_id" id="location_id"
                             class="form-control" required>
                             <option value="">Seleccionar</option>
-                            <option value="Sagrado Corazón">Sagrado Corazón</option>
-                            <option value="Colegio Salesiano">Colegio Salesiano</option>
-                            <option value="CLEM">CLEM</option>
                         </select>    
                     </div>
                 </div>
