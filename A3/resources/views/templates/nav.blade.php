@@ -33,7 +33,7 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1"
                    aria-expanded="true" aria-controls="collapse1">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Ordenes</span>
+                    <span>Tipo de ambiente</span>
                 </a>
                 <div id="collapse1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -47,12 +47,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
                    aria-expanded="true" aria-controls="collapse2">
                     <i class="fas fa-fw fa-plus"></i>
-                    <span>Causales</span>
+                    <span>Ambiente de aprendizaje</span>
                 </a>
                 <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Consultar</a>
-                        <a class="collapse-item" href="#">Crear</a>
+                        <a class="collapse-item" href="{{ route('learning_enviroment.index') }}">Consultar</a>
+                        <a class="collapse-item" href="{{ route('learning_enviroment.create') }}">Crear</a>
                     </div>
                 </div>
             </li> 
@@ -61,12 +61,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
                    aria-expanded="true" aria-controls="collapse3">
                     <i class="fas fa-fw fa-minus"></i>
-                    <span>Observaciones</span>
+                    <span>Locación</span>
                 </a>
                 <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Consultar</a>
-                        <a class="collapse-item" href="#">Crear</a>
+                        <a class="collapse-item" href="{{ route('location.index') }}">Consultar</a>
+                        <a class="collapse-item" href="{{ route('location.create') }}">Crear</a>
                     </div>
                 </div>
             </li>
@@ -76,7 +76,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Actividades
+                Programación de ambiente
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -84,12 +84,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4"
                    aria-expanded="true" aria-controls="collapse4">
                     <i class="fas fa-fw fa-hammer"></i>
-                    <span>Actividades</span>
+                    <span>Programación de ambiente</span>
                 </a>
                 <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Consultar</a>
-                        <a class="collapse-item" href="#">Crear</a>
+                        <a class="collapse-item" href="{{ route('scheduling_enviroment.index') }}">Consultar</a>
+                        <a class="collapse-item" href="{{ route('scheduling_enviroment.create') }}">Crear</a>
                     </div>
                 </div>
             </li>
@@ -98,34 +98,40 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
                    aria-expanded="true" aria-controls="collapse5">
                     <i class="fas fa-fw fa-list"></i>
-                    <span>Tipos de actividad</span>
+                    <span>Curso</span>
                 </a>
                 <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Consultar</a>
-                        <a class="collapse-item" href="#">Crear</a>
+                        <a class="collapse-item" href="{{ route('course.index') }}">Consultar</a>
+                        <a class="collapse-item" href="{{ route('course.create') }}">Crear</a>
                     </div>
                 </div>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider"/>
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Técnicos
-            </div>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
+                   aria-expanded="true" aria-controls="collapse5">
+                    <i class="fas fa-fw fa-list"></i>
+                    <span>Carrera</span>
+                </a>
+                <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('career.index') }}">Consultar</a>
+                        <a class="collapse-item" href="{{ route('career.create') }}">Crear</a>
+                    </div>
+                </div>
+            </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6"
-                   aria-expanded="true" aria-controls="collapse6">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Técnicos</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
+                   aria-expanded="true" aria-controls="collapse5">
+                    <i class="fas fa-fw fa-list"></i>
+                    <span>Instructor</span>
                 </a>
-                <div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Consultar</a>
-                        <a class="collapse-item" href="#">Crear</a>
+                        <a class="collapse-item" href="{{ route('instructor.index') }}">Consultar</a>
+                        <a class="collapse-item" href="{{ route('instructor.create') }}">Crear</a>
                     </div>
                 </div>
             </li>
