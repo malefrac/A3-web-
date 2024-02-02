@@ -40,3 +40,28 @@ Route::get('/scheduling_enviroment/index', function () {
 Route::get('/scheduling_enviroment/edit', function () {
     return view('scheduling_enviroment.edit');
 })->name('scheduling_enviroment.edit');
+
+Route::get('/learning_enviroment/create', function () {
+    return view('learning_enviroment.create');
+})->name('learning_enviroment.create');
+
+Route::get('/learning_enviroment/index', function () {
+    return view('learning_enviroment.index');
+})->name('learning_enviroment.index');
+
+Route::get('/learning_enviroment/edit', function () {
+    return view('learning_enviroment.edit');
+})->name('learning_enviroment.edit');
+
+Route::get('/course/create', function () {
+    return view('course.create');
+})->name('course.create');
+
+Route::get('/course/index', function () {
+    return view('course.index');
+})->name('course.index');
+
+Route::get('/course/edit', function () {
+    return view('course.edit');
+})->name('course.edit');
+
