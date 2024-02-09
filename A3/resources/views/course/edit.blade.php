@@ -10,10 +10,9 @@
                 <div class="row form-group">
                     <div class="col-lg-4 mb-4">
                         <label for="code">Código</label>
-                        <select name="code" id="code"
-                            class="form-control" required>
-                            <option value="">Seleccionar</option>
-                        </select>   
+                        <label for="code">Código</label>
+                        <input type="number" class="form-control"
+                        id="code" name="code" required>
                     </div>
                     <div class="col-lg-4 mb-4">
                         <label for="shift">Jornada</label>
