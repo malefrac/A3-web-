@@ -10,7 +10,6 @@
                 <div class="row form-group">
                     <div class="col-lg-4 mb-4">
                         <label for="code">Código</label>
-                        <label for="code">Código</label>
                         <input type="number" class="form-control"
                         id="code" name="code" required>
                     </div>

@@ -1,5 +1,14 @@
 <?php
 
+use App\Http\Controllers\CareerController;
+use App\Http\Controllers\CareerTypeController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EnviromentTypeController;
+use App\Http\Controllers\InstructorController;
+use App\Http\Controllers\LearningEnviromentController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\SchedulingEnviromentController;
+use App\Models\Course;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,89 +26,75 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::get('/enviroment_type/create', function () {
-    return view('enviroment_type.create');
-})->name('enviroment_type.create');
 
-Route::get('/enviroment_type/index', function () {
-    return view('enviroment_type.index');
-})->name('enviroment_type.index');
+Route::prefix('enviroment_type')->group(function(){
+    Route::get('/index', [EnviromentTypeController::class, 'index'])->name('enviroment_type.index');
+    Route::get('/create', [EnviromentTypeController::class, 'create'])->name('enviroment_type.create');
+    Route::get('/edit/{id}', [EnviromentTypeController::class, 'edit'])->name('enviroment_type.edit');
+    Route::post('/create', [EnviromentTypeController::class, 'store'])->name('enviroment_type.store'); //se usa post en la ruta store para almacenar registros nuevos
+    Route::put('/edit/{id}', [EnviromentTypeController::class, 'update'])->name('enviroment_type.update'); //se usa put en la ruta update para actualizar registros
+    Route::get('/destroy/{id}', [EnviromentTypeController::class, 'destroy'])->name('enviroment_type.destroy'); //se usa get en la ruta destroy para eliminar registros
 
-Route::get('/enviroment_type/edit', function () {
-    return view('enviroment_type.edit');
-})->name('enviroment_type.edit');
+});
 
-Route::get('/scheduling_enviroment/create', function () {
-    return view('scheduling_enviroment.create');
-})->name('scheduling_enviroment.create');
+Route::prefix('scheduling_enviroment')->group(function(){
+    Route::get('/index', [SchedulingEnviromentController::class, 'index'])->name('scheduling_enviroment.index');
+    Route::get('/create', [SchedulingEnviromentController::class, 'create'])->name('scheduling_enviroment.create');
+    Route::get('/edit/{id}', [SchedulingEnviromentController::class, 'edit'])->name('scheduling_enviroment.edit');
+    Route::post('/create', [SchedulingEnviromentController::class, 'store'])->name('scheduling_enviroment.store'); //se usa post en la ruta store para almacenar registros nuevos
+    Route::put('/edit/{id}', [SchedulingEnviromentController::class, 'update'])->name('scheduling_enviroment.update'); //se usa put en la ruta update para actualizar registros
+    Route::get('/destroy/{id}', [SchedulingEnviromentController::class, 'destroy'])->name('scheduling_enviroment.destroy'); //se usa get en la ruta destroy para eliminar registros
 
-Route::get('/scheduling_enviroment/index', function () {
-    return view('scheduling_enviroment.index');
-})->name('scheduling_enviroment.index');
+});
 
-Route::get('/scheduling_enviroment/edit', function () {
-    return view('scheduling_enviroment.edit');
-})->name('scheduling_enviroment.edit');
+Route::prefix('learning_enviroment')->group(function(){
+    Route::get('/index', [LearningEnviromentController::class, 'index'])->name('learning_enviroment.index');
+    Route::get('/create', [LearningEnviromentController::class, 'create'])->name('learning_enviroment.create');
+    Route::get('/edit/{id}', [LearningEnviromentController::class, 'edit'])->name('learning_enviroment.edit');
+    Route::post('/create', [LearningEnviromentController::class, 'store'])->name('learning_enviroment.store'); //se usa post en la ruta store para almacenar registros nuevos
+    Route::put('/edit/{id}', [LearningEnviromentController::class, 'update'])->name('learning_enviroment.update'); //se usa put en la ruta update para actualizar registros
+    Route::get('/destroy/{id}', [LearningEnviromentController::class, 'destroy'])->name('learning_enviroment.destroy'); //se usa get en la ruta destroy para eliminar registros
 
-Route::get('/learning_enviroment/create', function () {
-    return view('learning_enviroment.create');
-})->name('learning_enviroment.create');
+});
 
-Route::get('/learning_enviroment/index', function () {
-    return view('learning_enviroment.index');
-})->name('learning_enviroment.index');
+Route::prefix('course')->group(function(){
+    Route::get('/index', [CourseController::class, 'index'])->name('course.index');
+    Route::get('/create', [CourseController::class, 'create'])->name('course.create');
+    Route::get('/edit/{id}', [CourseController::class, 'edit'])->name('course.edit');
+    Route::post('/create', [CourseController::class, 'store'])->name('course.store'); //se usa post en la ruta store para almacenar registros nuevos
+    Route::put('/edit/{id}', [CourseController::class, 'update'])->name('course.update'); //se usa put en la ruta update para actualizar registros
+    Route::get('/destroy/{id}', [CourseController::class, 'destroy'])->name('course.destroy'); //se usa get en la ruta destroy para eliminar registros
 
-Route::get('/learning_enviroment/edit', function () {
-    return view('learning_enviroment.edit');
-})->name('learning_enviroment.edit');
+});
 
-Route::get('/course/create', function () {
-    return view('course.create');
-})->name('course.create');
+Route::prefix('career')->group(function(){
+    Route::get('/index', [CareerController::class, 'index'])->name('career.index');
+    Route::get('/create', [CareerController::class, 'create'])->name('career.create');
+    Route::get('/edit/{id}', [CareerController::class, 'edit'])->name('career.edit');
+    Route::post('/create', [CareerController::class, 'store'])->name('career.store'); //se usa post en la ruta store para almacenar registros nuevos
+    Route::put('/edit/{id}', [CareerController::class, 'update'])->name('career.update'); //se usa put en la ruta update para actualizar registros
+    Route::get('/destroy/{id}', [CareerController::class, 'destroy'])->name('career.destroy'); //se usa get en la ruta destroy para eliminar registros
 
-Route::get('/course/index', function () {
-    return view('course.index');
-})->name('course.index');
+});
 
-Route::get('/course/edit', function () {
-    return view('course.edit');
-})->name('course.edit');
+Route::prefix('location')->group(function(){
+    Route::get('/index', [LocationController::class, 'index'])->name('location.index');
+    Route::get('/create', [LocationController::class, 'create'])->name('location.create');
+    Route::get('/edit/{id}', [LocationController::class, 'edit'])->name('location.edit');
+    Route::post('/create', [LocationController::class, 'store'])->name('location.store'); //se usa post en la ruta store para almacenar registros nuevos
+    Route::put('/edit/{id}', [LocationController::class, 'update'])->name('location.update'); //se usa put en la ruta update para actualizar registros
+    Route::get('/destroy/{id}', [LocationController::class, 'destroy'])->name('location.destroy'); //se usa get en la ruta destroy para eliminar registros
 
-Route::get('/career/create', function () {
-    return view('career.create');
-})->name('career.create');
+});
 
-Route::get('/career/index', function () {
-    return view('career.index');
-})->name('career.index');
+Route::prefix('instructor')->group(function(){
+    Route::get('/index', [InstructorController::class, 'index'])->name('instructor.index');
+    Route::get('/create', [InstructorController::class, 'create'])->name('instructor.create');
+    Route::get('/edit/{document}', [InstructorController::class, 'edit'])->name('instructor.edit');
+    Route::post('/create', [InstructorController::class, 'store'])->name('instructor.store'); //se usa post en la ruta store para almacenar registros nuevos
+    Route::put('/edit/{document}', [InstructorController::class, 'update'])->name('instructor.update'); //se usa put en la ruta update para actualizar registros
+    Route::get('/destroy/{document}', [InstructorController::class, 'destroy'])->name('instructor.destroy'); //se usa get en la ruta destroy para eliminar registros
 
-Route::get('/career/edit', function () {
-    return view('career.edit');
-})->name('career.edit');
-
-Route::get('/location/create', function () {
-    return view('location.create');
-})->name('location.create');
-
-Route::get('/location/index', function () {
-    return view('location.index');
-})->name('location.index');
-
-Route::get('/location/edit', function () {
-    return view('location.edit');
-})->name('location.edit');
-
-Route::get('/instructor/create', function () {
-    return view('instructor.create');
-})->name('instructor.create');
-
-Route::get('/instructor/index', function () {
-    return view('instructor.index');
-})->name('instructor.index');
-
-Route::get('/instructor/edit', function () {
-    return view('instructor.edit');
-})->name('instructor.edit');
-
+});
 
 
