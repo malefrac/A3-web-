@@ -21,22 +21,24 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($careers as $career)
                     <tr>
-                        <td>1</td>
-                        <td>Programación de software</td>
-                        <td>Técnico</td>
+                        <td>{{ $career['id'] }}</td>
+                        <td>{{ $career['name'] }}</td>
+                        <td>{{ $career['type'] }}</td>
                         <td>
-                            <a href="#" title="editar" 
+                            <a href="{{ route('career.edit' , $career['id']) }}" title="editar" 
                                 class="btn btn-info btn-circle btn-sm">
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="#" title="eliminar" 
+                            <a href="{{ route('career.destroy', $career['id']) }}" title="eliminar" 
                                 class="btn btn-danger btn-circle btn-sm"
                                 onclick="return remove()">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
 
             </table>

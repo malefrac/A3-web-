@@ -5,7 +5,7 @@
     @include('templates.messages')
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <form action="#" method="POST">
+            <form action="{{ route('instructor.store') }}" method="POST">
                 @csrf
                 <div class="row form-group">
                     <div class="col-lg-6 mb-4">
@@ -39,7 +39,7 @@
                     </div>
                     <div class="col-lg-6 mb-4">
                         <label for="password">Contraseña</label>
-                        <input type="text" class="form-control"
+                        <input type="password" class="form-control"
                         id="password" name="password" required>
                     </div>   
                 </div>

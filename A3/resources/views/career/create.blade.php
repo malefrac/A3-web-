@@ -5,7 +5,7 @@
     @include('templates.messages')
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <form action="#" method="POST">
+            <form action="{{ route('career.store') }}" method="POST">
                 @csrf
                 <div class="row form-group">
                     <div class="col-lg-6 mb-4">
@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-lg-6 mb-4">
                         <label for="type">Tipo</label>
-                        <select name="shift" id="shift"
+                        <select name="type" id="type"
                         class="form-control" required>
                         <option value="Seleccionar">Seleccionar</option>
                         <option value="Lectiva">Técnico</option>

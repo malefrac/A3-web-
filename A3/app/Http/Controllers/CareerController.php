@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Career;
 use Illuminate\Http\Request;
 
 class CareerController extends Controller
@@ -11,7 +12,8 @@ class CareerController extends Controller
      */
     public function index()
     {
-        //
+        $careers = Career::all();
+        return view('career.index', compact('careers'));
     }
 
     /**
@@ -19,7 +21,13 @@ class CareerController extends Controller
      */
     public function create()
     {
-        //
+        $career = Career::all();
+        $types = array(
+
+            ['name' => 'Tecnologo', 'value' => 'Tecnologo'],
+            ['name' => 'Tecnico', 'value' => 'Tecnico'], );
+
+        return view('career.create', compact('types'));
     }
 
     /**
@@ -27,7 +35,13 @@ class CareerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $career = Career::create($request->all());
+            session()->flash('message','Registro creado exitosamente');
+            return redirect()->route('career.index');
+            /*$career = Career::create($request->all());
+            session()->flash('message','Registro creado exitosamente');
+            return redirect()->route('career.index');*/
+        
     }
 
     /**
@@ -35,7 +49,7 @@ class CareerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**
@@ -43,7 +57,13 @@ class CareerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $career = Career::find($id);
+        if($career){
+            return view('career.edit', compact('career'));//si la causal existe
+        }
+        else{
+            return redirect()->route('career.index');
+        }
     }
 
     /**
@@ -51,14 +71,39 @@ class CareerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $career = Career::find($id);
+        if($career)//si la causal existe
+        {
+            $career->update($request->all());//delete from causal where id = x
+            session()->flash('message', 'Registro actualizado exitosamente');
+        }
+        else{
+            session()->flash('warning', 'No se encuentra el registro solicitado');
+        }
+        return redirect()->route('career.index');
     }
+
+    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $career = Career::find($id);
+        if($career)//si la causal exite
+        {
+            $career->delete(); //delete from causal where id = x
+            session()->flash('message','Registro eliminado exitosamente');
+        }
+        else//si la causal no existe
+        {
+            session()->flash('warning','No se encuentra el registro solicitado');
+        }
+        return redirect()->route('career.index');
     }
 }
+
+
+
+
