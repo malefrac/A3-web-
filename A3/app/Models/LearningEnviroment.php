@@ -16,19 +16,19 @@ class LearningEnviroment extends Model
         'area_mt2',
         'floor',
         'inventory',
-        'id_type',
-        'id_location',
+        'type_id',
+        'location_id',
         'status'
     ];
 
     public function enviroment_type()
     {
-        return $this->belongsTo(EnviromentType::class,'id_type');
+        return $this->belongsTo(EnviromentType::class,'type_id');
     }
 
     public function location()
     {
-        return $this->belongsTo(Location::class, 'id_location');
+        return $this->belongsTo(Location::class, 'location_id');
     }
 
     public function scheduling_enviroments()

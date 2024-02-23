@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Career;
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -11,7 +13,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::all();
+        return view('course.index', compact('courses'));
     }
 
     /**
@@ -19,7 +22,19 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        $careers = Career::all();
+        $statuss = array(
+            ['name' => 'LECTIVA', 'value' => 'LECTIVA'],
+            ['name' => 'PRODUCTIVA', 'value' => 'PRODUCTIVA'],
+            ['name' => 'INDUCCIÓN', 'value' => 'INDUCCIÓN'],
+        );
+        $shifts = array(
+            ['name' => 'DIURNA', 'value' => 'DIURNA'],
+            ['name' => 'MIXTA', 'value' => 'MIXTA'],
+            ['name' => 'NOCTURNA', 'value' => 'NOCTURNA'],
+        );
+
+        return view('course.create', compact('careers', 'statuss', 'shifts'));
     }
 
     /**
@@ -27,7 +42,9 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $course = Course::create($request->all());
+        session()->flash('message', 'Curso creado exitosamente');
+        return redirect()->route('course.index');
     }
 
     /**
@@ -43,7 +60,26 @@ class CourseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $course = Course::find($id);
+        if($course)
+        {
+            $careers = Career::all();
+            $statuss = array(
+                ['name' => 'LECTIVA', 'value' => 'LECTIVA'],
+                ['name' => 'PRODUCTIVA', 'value' => 'PRODUCTIVA'],
+                ['name' => 'INDUCCIÓN', 'value' => 'INDUCCIÓN'],
+            );
+            $shifts = array(
+                ['name' => 'DIURNA', 'value' => 'DIURNA'],
+                ['name' => 'MIXTA', 'value' => 'MIXTA'],
+                ['name' => 'NOCTURNA', 'value' => 'NOCTURNA'],
+            );
+        
+            return view('course.edit', compact('course', 'careers', 'statuss', 'shifts'));
+        }
+    
+        session()->flash('warning', 'No se encuentra el curso solicitado');
+        return redirect()->route('course.index');
     }
 
     /**
@@ -51,7 +87,18 @@ class CourseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $course = Course::find($id);
+        if($course)
+        {
+            $course->update($request->all());
+            session()->flash('message', 'Curso actualizado exitosamente');
+        }
+        else
+        {
+            session()->flash('warning', 'No se encuentra el curso solicitado');
+        }
+
+        return redirect()->route('course.index');
     }
 
     /**
@@ -59,6 +106,17 @@ class CourseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $course = Course::find($id);
+        if($course)
+        {
+            $course->delete();
+            session()->flash('message', 'Curso eliminado exitosamente');
+        }
+        else
+        {
+            session()->flash('warning', 'No se encuentra el curso solicitado');
+        }
+
+        return redirect()->route('course.index');
     }
 }

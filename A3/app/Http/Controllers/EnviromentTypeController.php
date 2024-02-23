@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EnviromentType;
 use Illuminate\Http\Request;
 
 class EnviromentTypeController extends Controller
@@ -11,7 +12,8 @@ class EnviromentTypeController extends Controller
      */
     public function index()
     {
-        //
+        $enviroment_types = EnviromentType::all();
+        return view('enviroment_type.index', compact('enviroment_types'));
     }
 
     /**
@@ -19,7 +21,7 @@ class EnviromentTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('enviroment_type.create');
     }
 
     /**
@@ -27,7 +29,9 @@ class EnviromentTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $enviroment_type = EnviromentType::create($request->all());
+        session()->flash('message', 'Tipo de ambiente creado exitosamente');
+        return redirect()->route('enviroment_type.index');
     }
 
     /**
@@ -43,7 +47,15 @@ class EnviromentTypeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $enviroment_type = EnviromentType::find($id);
+        if($enviroment_type)
+        {
+            return view('enviroment_type.edit', compact('enviroment_type'));
+        }
+        else 
+        {
+            return redirect()->route('enviroment_type.index');
+        }
     }
 
     /**
@@ -51,7 +63,20 @@ class EnviromentTypeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $enviroment_type = EnviromentType::find($id);
+        if($enviroment_type)
+        {
+            $enviroment_type->update($request->all()); 
+            session()->flash('message', 'Tipo de ambiente eliminado exitosamente');
+        }
+        else
+        {
+            return redirect()->route('enviroment_type.index');
+            session()->flash('warning', 'No se encuentra el tipo de ambiente solicitado');
+
+        }
+
+        return redirect()->route('enviroment_type.index');
     }
 
     /**
@@ -59,6 +84,17 @@ class EnviromentTypeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $enviroment_type = EnviromentType::find($id);
+        if($enviroment_type) 
+        {
+            $enviroment_type->delete(); 
+            session()->flash('message','Tipo de ambiente eliminado exitosamente');
+        }
+        else 
+        {
+            session()->flash('warning', 'No se encuentra el tipo de ambiente solicitado');
+        }
+
+        return redirect()->route('enviroment_type.index');
     }
 }

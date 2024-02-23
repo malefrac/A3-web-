@@ -109,12 +109,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
-                   aria-expanded="true" aria-controls="collapse5">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6"
+                   aria-expanded="true" aria-controls="collapse6">
                     <i class="fas fa-fw fa-list"></i>
                     <span>Carrera</span>
                 </a>
-                <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('career.index') }}">Consultar</a>
                         <a class="collapse-item" href="{{ route('career.create') }}">Crear</a>
@@ -123,12 +123,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
-                   aria-expanded="true" aria-controls="collapse5">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse7"
+                   aria-expanded="true" aria-controls="collapse7">
                     <i class="fas fa-fw fa-list"></i>
                     <span>Instructor</span>
                 </a>
-                <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapse7" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('instructor.index') }}">Consultar</a>
                         <a class="collapse-item" href="{{ route('instructor.create') }}">Crear</a>

@@ -5,7 +5,7 @@
     @include('templates.messages')
     <div class="row">
         <div class="col-lg-12 mb-4">
-            <form action="#" method="POST">
+            <form action="{{ route('course.store') }}" method="POST">
                 @csrf
                 <div class="row form-group">
                     <div class="col-lg-4 mb-4">
@@ -17,10 +17,10 @@
                         <label for="shift">Jornada</label>
                         <select name="shift" id="shift"
                         class="form-control" required>
-                        <option value="Seleccionar">Seleccionar</option>
-                        <option value="Diurna">Diurna</option>
-                        <option value="Mixta">Mixta</option>
-                        <option value="Nocturna">Nocturna</option> 
+                        @foreach ($shifts as $shift)
+                            <option value="{{ $shift['value'] }}">{{ $shift['name'] }}
+                            </option>
+                        @endforeach
                         </select>
                     </div>
 
@@ -28,7 +28,10 @@
                         <label for="career_id">Carrera</label>
                         <select name="career_id" id="career_id"
                         class="form-control" required>
-                        <option value="">Seleccionar</option>
+                        @foreach ($careers as $career)
+                            <option value="{{ $career['id'] }}">{{ $career['name'] }}
+                            </option>
+                        @endforeach
                     </select>    
                     </div>
                 </div>
@@ -46,12 +49,12 @@
                     </div>
                     <div class="col-lg-4 mb-4">
                         <label for="status">Estado</label>
-                        <select name="shift" id="shift"
+                        <select name="status" id="status"
                         class="form-control" required>
-                        <option value="Seleccionar">Seleccionar</option>
-                        <option value="Lectiva">Lectiva</option>
-                        <option value="Productiva">Productiva</option>
-                        <option value="Inducción">Inducción</option> 
+                        @foreach ($statuss as $status)
+                            <option value="{{ $status['value'] }}">{{ $status['name'] }}
+                            </option>
+                        @endforeach 
                         </select>
                     </div>
                 </div>

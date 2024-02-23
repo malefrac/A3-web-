@@ -23,30 +23,35 @@
                         <th>Inventario</th>
                         <th>Tipo</th>
                         <th>Locación</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Aula 210</td>
-                        <td>30</td>
-                        <td>15</td>
-                        <td>3</td>
-                        <td>1 tv, 1 tablero</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>
-                            <a href="#" title="editar" 
-                                class="btn btn-info btn-circle btn-sm">
-                                <i class="far fa-edit"></i>
-                            </a>
-                            <a href="#" title="eliminar" 
-                                class="btn btn-danger btn-circle btn-sm"
-                                onclick="return remove()">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    @foreach ($learning_enviroments as $learning_enviroment)
+                        <tr>
+                            <td>{{ $learning_enviroment['id'] }}</td>
+                            <td>{{ $learning_enviroment['name'] }}</td>
+                            <td>{{ $learning_enviroment['capacity'] }}</td>
+                            <td>{{ $learning_enviroment['area_mt2'] }}</td>
+                            <td>{{ $learning_enviroment['floor'] }}</td>
+                            <td>{{ $learning_enviroment['inventory'] }}</td>
+                            <td>{{ optional($learning_enviroment->enviroment_type)->description ?? '' }}</td>
+                            <td>{{ optional($learning_enviroment->location)->name ?? '' }}</td>
+                            <td>{{ $learning_enviroment['status'] }}</td>
+                            <td>
+                                <a href="{{ route('learning_enviroment.edit', $learning_enviroment['id']) }}" title="editar" 
+                                    class="btn btn-info btn-circle btn-sm">
+                                    <i class="far fa-edit"></i>
+                                </a>
+                                <a href="{{ route('learning_enviroment.destroy', $learning_enviroment['id']) }}" title="eliminar" 
+                                    class="btn btn-danger btn-circle btn-sm"
+                                    onclick="return remove()">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
 
             </table>
