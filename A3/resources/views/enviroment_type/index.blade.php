@@ -21,21 +21,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>AULA VIRTUAL</td>
-                        <td>
-                            <a href="#" title="editar" 
-                                class="btn btn-info btn-circle btn-sm">
-                                <i class="far fa-edit"></i>
-                            </a>
-                            <a href="#" title="eliminar" 
-                                class="btn btn-danger btn-circle btn-sm"
-                                onclick="return remove()">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    @foreach ($enviroment_types as $enviroment_type)
+                        <tr>
+                            <td>{{ $enviroment_type['id'] }}</td>
+                            <td>{{ $enviroment_type['description'] }}</td>
+                            <td>
+                                <a href="{{ route('enviroment_type.edit', $enviroment_type['id']) }}" title="editar" 
+                                    class="btn btn-info btn-circle btn-sm">
+                                    <i class="far fa-edit"></i>
+                                </a>
+                                <a href="{{ route('enviroment_type.destroy', $enviroment_type['id']) }}" title="eliminar" 
+                                    class="btn btn-danger btn-circle btn-sm"
+                                    onclick="return remove()">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
 
             </table>

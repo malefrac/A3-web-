@@ -10,8 +10,9 @@ class Course extends Model
     use HasFactory;
     protected $table = 'course';
     protected $fillable = [
+        'code',
         'shift',
-        'id_career',
+        'career_id',
         'initial_date',
         'final_date',
         'status'
@@ -19,11 +20,11 @@ class Course extends Model
 
     public function career()
     {
-        return $this->belongsTo(Career::class, 'id_career');
+        return $this->belongsTo(Career::class, 'career_id');
     }
 
     public function scheduling_enviroment()
     {
-        return $this->belongsTo(SchedulingEnviroment::class, 'id_course');
+        return $this->belongsTo(SchedulingEnviroment::class, 'course_id');
     }
 }

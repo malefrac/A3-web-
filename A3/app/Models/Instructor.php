@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Instructor extends Model
 {
     use HasFactory;
-    protected $table = 'instructor';
 
+    protected $table = 'instructor';
     protected $fillable = [
         'document',
         'fullname',
@@ -17,9 +17,14 @@ class Instructor extends Model
         'personal_email',
         'phone',
         'password',
-        'remember_token',
         'type',
-        'profile',
+        'profile'
+
     ];
+
+    public function scheduling_enviroment()
+    {
+        return $this->belongsTo(SchedulingEnviroment::class);
+    }
 
 }
