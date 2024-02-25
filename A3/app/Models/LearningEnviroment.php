@@ -16,8 +16,8 @@ class LearningEnviroment extends Model
         'area_mt2',
         'floor',
         'inventory',
-        'id_type',
-        'id_location',
+        'type_id',
+        'location_id',
         'status'
     ];
 

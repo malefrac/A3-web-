@@ -67,7 +67,7 @@ class EnviromentTypeController extends Controller
         if($enviroment_type)
         {
             $enviroment_type->update($request->all()); 
-            session()->flash('message', 'Tipo de ambiente eliminado exitosamente');
+            session()->flash('message', 'Tipo de ambiente actualizado exitosamente');
         }
         else
         {
