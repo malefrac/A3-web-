@@ -1,13 +1,12 @@
 @extends('templates.base')
-@section('title', 'Listado de locaciones')
-@section('header', 'Listado de locaciones')
+@section('title', 'Listado ubicaciones')
+@section('header','Listado ubicaciones')
 @section('content')
     <div class="row">
-        <div class="col-lg-12 mb-4 d-grip gap-2 d--md-block">
+        <div class="col-lg-12 mb-4 d-grip grap-2 d-md-block">
             <a href="{{ route('location.create') }}" class="btn btn-primary">Crear</a>
         </div>
     </div>
-
     @include('templates.messages')
 
     <div class="row">
@@ -19,36 +18,41 @@
                         <th>Nombre</th>
                         <th>Dirección</th>
                         <th>Estado</th>
+                        <th>Acciones</th>
+
+    
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($locations as $location)
                     <tr>
-                        <td>2</td>
-                        <td>Colegio Salesiano</td>
-                        <td>CL. 34 # Cra 26</td>
-                        <td>ACTIVO</td>
+                        
+                        <td>{{ $location['id'] }}</td>
+                        <td>{{ $location['name'] }}</td>
+                        <td>{{ $location['address'] }}</td>
+                        <td>{{ $location['status'] }}</td>
+            
+                    
+                        
                         <td>
-                            <a href="#" title="editar" 
-                                class="btn btn-info btn-circle btn-sm">
+                            <a href="{{ route('location.edit', $location['id']) }}" title="editar" class="btn btn-info btn-circle btn-sm">
                                 <i class="far fa-edit"></i>
                             </a>
-                            <a href="#" title="eliminar" 
-                                class="btn btn-danger btn-circle btn-sm"
-                                onclick="return remove()">
+                            <a href="{{ route('location.destroy', $location['id']) }}" title="eliminar" class="btn btn-danger btn-circle btn-sm" onclick="return remove();">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
-
             </table>
+
         </div>
     </div>
 
 @endsection
-
 @section('scripts')
-    <script src="{{ asset('js/general.js') }}"></script>
+       <script src="{{ asset('js/general.js') }}"></script>
+        
+
 @endsection
-
-

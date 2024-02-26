@@ -21,7 +21,7 @@ class TestSchedulingEnviromentSeeder extends Seeder
         $course = Course::find(1);
         $scheduling_enviroment->course_id = $course->id;
         
-        $instructor = Instructor::find(1);
+        $instructor = Instructor::find(6);
         $scheduling_enviroment->instructor_id = $instructor->id;
 
         $scheduling_enviroment->date_scheduling = '2024-01-30';

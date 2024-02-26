@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\EnviromentType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class EnviromentTypeController extends Controller
 {
+    private $rules =[
+        'description' =>'required|string|max:100|min:3',
+    ];
+
+    private $traductionAttributes = [
+        'description' => 'descripción',
+    ];
+
     /**
      * Display a listing of the resource.
      */
@@ -29,6 +38,14 @@ class EnviromentTypeController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), $this->rules);
+        $validator->setAttributeNames($this->traductionAttributes);
+        if($validator->fails())
+        {
+            $errors = $validator->errors();
+            return redirect()->route('enviroment_type.create')->withInput()->withErrors($errors);
+        }
+
         $enviroment_type = EnviromentType::create($request->all());
         session()->flash('message', 'Tipo de ambiente creado exitosamente');
         return redirect()->route('enviroment_type.index');
@@ -63,6 +80,14 @@ class EnviromentTypeController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validator = Validator::make($request->all(), $this->rules);
+        $validator->setAttributeNames($this->traductionAttributes);
+        if($validator->fails())
+        {
+            $errors = $validator->errors();
+            return redirect()->route('enviroment_type.edit', $id)->withInput()->withErrors($errors);
+        }
+
         $enviroment_type = EnviromentType::find($id);
         if($enviroment_type)
         {

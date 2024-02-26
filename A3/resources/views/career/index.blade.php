@@ -18,6 +18,7 @@
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Tipo</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>

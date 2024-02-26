@@ -18,13 +18,13 @@ class Course extends Model
         'status'
     ];
 
-    public function career()
+    public function careers()
     {
-        return $this->belongsTo(Career::class, 'career_id');
+        return $this->hasMeny(Career::class);
     }
 
-    public function scheduling_enviroment()
+    public function scheduling_enviroments()
     {
-        return $this->belongsTo(SchedulingEnviroment::class, 'course_id');
+        return $this->hasMeny(SchedulingEnviroment::class);
     }
 }

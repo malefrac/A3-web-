@@ -5,9 +5,29 @@ namespace App\Http\Controllers;
 use App\Models\Career;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CourseController extends Controller
 {
+    private $rules =[
+        'code' =>'required|numeric|max:9999999999',
+        'shift' => 'required|string',
+        'career_id' => 'numeric',
+        'initial_date' => 'required|date|date_format:Y-m-d',
+        'final_date' => 'required|date|date_format:Y-m-d',
+        'status' => 'required|string'
+
+    ];
+    
+    private $traductionAttributes = [
+        'code' => 'ficha',
+        'shift' => 'jornada',
+        'career_id' => 'carrera',
+        'initial_date' => 'fecha inicial',
+        'final_date' => 'fecha final',
+        'status' => 'estado',
+    ];
+
     /**
      * Display a listing of the resource.
      */
@@ -42,6 +62,13 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), $this->rules);
+        $validator->setAttributeNames($this->traductionAttributes);
+        if($validator->fails())
+        {
+            $errors = $validator->errors();
+            return redirect()->route('course.create')->withInput()->withErrors($errors);
+        }
         $course = Course::create($request->all());
         session()->flash('message', 'Curso creado exitosamente');
         return redirect()->route('course.index');
@@ -87,6 +114,14 @@ class CourseController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validator = Validator::make($request->all(), $this->rules);
+        $validator->setAttributeNames($this->traductionAttributes);
+        if($validator->fails())
+        {
+            $errors = $validator->errors();
+            return redirect()->route('course.create' , $id)->withInput()->withErrors($errors);
+        }
+
         $course = Course::find($id);
         if($course)
         {

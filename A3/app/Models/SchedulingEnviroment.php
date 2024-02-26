@@ -9,22 +9,25 @@ class SchedulingEnviroment extends Model
 {
     use HasFactory;
     protected $table = 'scheduling_enviroment';
-    protected $fillable = [
-        'id_course',
-        'document_instructor',
+    protected $fillable = 
+    [
+        'course_id',
+        'instructor_id',
         'date_scheduling',
         'initial_hour',
         'final_hour',
-        'id_enviroment'
+        'enviroment_id'
     ];
-
-    public function scheduling_enviroment()
+    public function course()
     {
-        return $this->belongsTo(SchedulingEnviroment::class, 'id_enviroment');
+        return $this->belongsTo(Course::class);
     }
-
     public function instructor()
     {
-        return $this->belongsTo(Instructor::class, 'document');
+        return $this->belongsTo(Instructor::class, 'instructor_id');
+    }
+    public function learning_enviroment()
+    {
+        return $this->belongsTo(LearningEnviroment::class, 'enviroment_id');
     }
 }

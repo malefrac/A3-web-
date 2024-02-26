@@ -23,12 +23,12 @@ class LearningEnviroment extends Model
 
     public function enviroment_type()
     {
-        return $this->belongsTo(EnviromentType::class,'id_type');
+        return $this->belongsTo(EnviromentType::class,'type_id');
     }
 
     public function location()
     {
-        return $this->belongsTo(Location::class, 'id_location');
+        return $this->belongsTo(Location::class);
     }
 
     public function scheduling_enviroments()

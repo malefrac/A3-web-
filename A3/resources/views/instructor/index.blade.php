@@ -24,6 +24,7 @@
                         <th>Contraseña</th>
                         <th>Tipo</th>
                         <th>Perfil</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
