@@ -78,6 +78,8 @@ Route::middleware('auth')->prefix('course')->group(function(){
     Route::post('/create', [CourseController::class, 'store'])->name('course.store'); //se usa post en la ruta store para almacenar registros nuevos
     Route::put('/edit/{id}', [CourseController::class, 'update'])->name('course.update'); //se usa put en la ruta update para actualizar registros
     Route::get('/destroy/{id}', [CourseController::class, 'destroy'])->name('course.destroy'); //se usa get en la ruta destroy para eliminar registros
+    Route::get('/courses/pdf', [CourseController::class, 'generatePdf'])->name('course.pdf');
+    
 
 });
 
@@ -108,4 +110,8 @@ Route::middleware('auth')->prefix('instructor')->group(function(){
     Route::post('/create', [InstructorController::class, 'store'])->name('instructor.store'); //se usa post en la ruta store para almacenar registros nuevos
     Route::put('/edit/{document}', [InstructorController::class, 'update'])->name('instructor.update'); //se usa put en la ruta update para actualizar registros
     Route::get('/destroy/{document}', [InstructorController::class, 'destroy'])->name('instructor.destroy'); //se usa get en la ruta destroy para eliminar registros
+});
+
+Route::middleware('reports')->group(function () {
+    
 });

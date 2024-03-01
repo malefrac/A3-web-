@@ -13,16 +13,15 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    /**
+
+      /**
      * Display a listing of the resource.
      */
-      public function index()
-     {
+    public function index()
+    {
        return view('reports.index');
-     }
-
-
-
+    }
+    
     public function export_learning_enviroments()
     {
         
@@ -36,6 +35,7 @@ class ReportController extends Controller
             return $pdf->download('learning_enviroments.pdf');
     
     }
+   
 
     
     /*public function export_users()
@@ -48,10 +48,6 @@ class ReportController extends Controller
         return $pdf->download('Users.pdf');
     }*/
 
-    /**
-     * exportar las actividades de un técnico selecionado
-     * 
-     */
 
    /* public function export_activities_by_technician(Request $request)
     {
@@ -60,13 +56,10 @@ class ReportController extends Controller
         $activities = Activity::where('technician_id', '=' , $request['technician_id'])    
                     ->get();          
         $data = array(
-            'technician'=> $technician,
-            'activities'=>$activities
-        );           
-        
-        $pdf = Pdf::loadView('reports.export_activities_by_technician', $data)->setPaper('letter','portrait');
-        return $pdf->download('ActivitiesByTechnician.pdf');
-    }
+            'courses' => $courses
+            ,
+            'careers' => $careers
+        );
 
    /* public function export_orders(Request $request)
     {
@@ -84,8 +77,6 @@ class ReportController extends Controller
         return $pdf->download('Orders.pdf');
     }*/
 
-  
-    
 
     /**
      * Show the form for creating a new resource.

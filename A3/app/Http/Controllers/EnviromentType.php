@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class EnviromentTypeController extends Controller
 {
-    private $rules =[
+    private $rules = [
         'description' =>'required|string|max:100|min:3',
     ];
 

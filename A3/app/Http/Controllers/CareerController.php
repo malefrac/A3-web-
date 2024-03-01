@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Career;
+use App\Models\Course;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -20,8 +22,6 @@ class CareerController extends Controller
         'type' => 'tipo'
 
     ];
-
-     
 
     /**
      * Display a listing of the resource.
