@@ -49,7 +49,7 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), $this->rules);
+        $validator = validator::make($request->all(), $this->rules);
         $validator->setAttributeNames($this->traductionAttributes);
         if($validator->fails())
         {

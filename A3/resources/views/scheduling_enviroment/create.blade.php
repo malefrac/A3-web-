@@ -12,6 +12,7 @@
                             <label for="course_id">Curso</label>
                             <select name="course_id" id="course_id"
                             class="form-control" required>
+<<<<<<< Updated upstream
                             <option value="">Seleccione</option>
                             @foreach ($courses as $course)
                             <option value="{{ $course ['id']}}"
@@ -22,11 +23,21 @@
                             @endforeach
                             
                             </select>
+=======
+                            <option value="">Seleccionar</option>
+                            @foreach ($courses as $course)
+                            <option value="{{ $course['id'] }}">
+                                {{ $course['code'] }}
+                            </option>
+                        @endforeach
+                        </select>  
+>>>>>>> Stashed changes
                     </div>
             
                     <div class="col-lg-4 mb-4">
                         <label for="instructor_id">Instructor</label>
                         <select name="instructor_id" id="instructor_id"
+<<<<<<< Updated upstream
                         class="form-control" required>
                         <option value="">Seleccione</option>
                         @foreach ($instructors as $instructor)
@@ -37,6 +48,16 @@
                             
                         @endforeach
                         </select>
+=======
+                            class="form-control" required>
+                            <option value="">Seleccionar</option>
+                            @foreach ($instructors as $instructor)
+                            <option value="{{ $instructor['id'] }}">
+                                {{ $instructor['document'] }}
+                            </option>
+                        @endforeach
+                        </select>   
+>>>>>>> Stashed changes
                     </div>
                                 
                     <div class="col-lg-4 mb-4">
@@ -70,6 +91,7 @@
                     <div class="col-lg-4 mb-4">
                         <label for="enviroment_id">Ambiente</label>
                         <select name="enviroment_id" id="enviroment_id"
+<<<<<<< Updated upstream
                         class="form-control" required>
                         <option value="">Seleccione</option>
                         @foreach ($learning_enviroments as $learning_enviroment)
@@ -80,6 +102,17 @@
                         @endforeach
                         </select>
                         
+=======
+                            class="form-control" required>
+                            <option value="">Seleccionar</option>
+                            @foreach($learning_enviroment as $learning_enviroments)
+                                <option value="{{ $learning_enviroment["id"] }}">
+                                    {{ $learning_enviroment['name'] }}
+                                </option>
+                                
+                            @endforeach
+                        </select>      
+>>>>>>> Stashed changes
                     </div>
                 </div>
                 

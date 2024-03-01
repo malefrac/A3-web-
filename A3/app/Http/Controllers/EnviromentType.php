@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EnviromentType;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 

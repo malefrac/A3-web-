@@ -8,6 +8,7 @@ use App\Http\Controllers\EnviromentTypeController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\LearningEnviromentController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SchedulingEnviromentController;
 use App\Models\Course;
 use Illuminate\Support\Facades\Route;
@@ -105,7 +106,7 @@ Route::middleware('auth')->prefix('instructor')->group(function(){
     Route::post('/create', [InstructorController::class, 'store'])->name('instructor.store'); //se usa post en la ruta store para almacenar registros nuevos
     Route::put('/edit/{document}', [InstructorController::class, 'update'])->name('instructor.update'); //se usa put en la ruta update para actualizar registros
     Route::get('/destroy/{document}', [InstructorController::class, 'destroy'])->name('instructor.destroy'); //se usa get en la ruta destroy para eliminar registros
-
+    //Route::post('/export_orders', [ReportController::class, 'export_orders'])->name('reports.orders_date');//
 });
 
 

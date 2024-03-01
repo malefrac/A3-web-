@@ -8,6 +8,7 @@ use App\Models\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+
 class LearningEnviromentController extends Controller
 {
     private $rules =[

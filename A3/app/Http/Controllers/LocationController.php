@@ -9,20 +9,21 @@ use Illuminate\Support\Facades\Validator;
 class LocationController extends Controller
 {
 
-    private $rules =[
+    private $rules = [
         'name' => 'required|string|max:80|min:3',
         'address' => 'required|string|max:80|min:3',
         'status' => 'required|string|max:20|min:3',
+    ];
 
   
-      ];
+    
   
       private $traductionAttributes = [
           'name' => 'nombre',
           'address' => 'dirección',
           'status' => 'estado'
   
-      ];
+    ];
 
     /**
      * Display a listing of the resource.
