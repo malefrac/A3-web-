@@ -31,7 +31,7 @@
                             <td>{{ $course['id'] }}</td>
                             <td>{{ $course['code'] }}</td>
                             <td>{{ $course['shift'] }}</td>
-                            <td>{{ optional($course->career)->name ?? '' }}</td>
+                            <td>{{ $course->career_id }}</td>
                             <td>{{ $course['initial_date'] }}</td>
                             <td>{{ $course['final_date'] }}</td>
                             <td>{{ $course['status'] }}</td>

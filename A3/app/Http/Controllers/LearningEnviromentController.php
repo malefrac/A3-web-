@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EnviromentType;
 use App\Models\LearningEnviroment;
 use App\Models\Location;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -39,12 +40,39 @@ class LearningEnviromentController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    
+ 
+ 
+    
     public function index()
     {
+        
         $learning_enviroments = LearningEnviroment::all();
         return view('learning_enviroment.index', compact('learning_enviroments'));
+        
+        
     }
 
+    public function reports()
+    {
+        $locations = Location::all();
+        return view('learning_enviroment.reports', compact('locations'));
+    }
+
+    public function export_learning_enviroments()
+    {
+        
+           // $enviroment_types = EnviromentType::all();
+            $learnig_enviroments = LearningEnviroment::all();
+            $data = array(
+            'learning_environments' => $learnig_enviroments,
+            //'enviroment_types' =>  $enviroment_types 
+           );
+            $pdf = Pdf::loadView('reports.export_learning_enviroment', $data)->setPaper('letter', 'portrait');
+            return $pdf->download('learning_enviroments.pdf');
+    
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -65,6 +93,7 @@ class LearningEnviromentController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), $this->rules);
         $validator->setAttributeNames($this->traductionAttributes);
         if($validator->fails())
@@ -74,8 +103,15 @@ class LearningEnviromentController extends Controller
         }
 
         $learning_enviroment = LearningEnviroment::create($request->all());
+
+        $learning_environment = LearningEnviroment::create($request->all());
+        session()->flash('message', 'Registro creado exitosamente');
+        return redirect()->route('learning_environment.index');
+
+        /*$learning_enviroment = LearningEnviroment::create($request->all());
+
         session()->flash('message', 'Ambiente de aprendizaje creado exitosamente');
-        return redirect()->route('learning_enviroment.index');
+        return redirect()->route('learning_enviroment.index');*/
     }
 
     /**
@@ -153,4 +189,7 @@ class LearningEnviromentController extends Controller
 
         return redirect()->route('learning_enviroment.index');
     }
+
+  
+
 }

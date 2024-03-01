@@ -65,9 +65,11 @@ Route::middleware('auth')->prefix('learning_enviroment')->group(function(){
     Route::get('/edit/{id}', [LearningEnviromentController::class, 'edit'])->name('learning_enviroment.edit');
     Route::post('/create', [LearningEnviromentController::class, 'store'])->name('learning_enviroment.store'); //se usa post en la ruta store para almacenar registros nuevos
     Route::put('/edit/{id}', [LearningEnviromentController::class, 'update'])->name('learning_enviroment.update'); //se usa put en la ruta update para actualizar registros
-    Route::get('/destroy/{id}', [LearningEnviromentController::class, 'destroy'])->name('learning_enviroment.destroy'); //se usa get en la ruta destroy para eliminar registros
+    Route::get('/destroy/{id}', [LearningEnviromentController::class, 'destroy'])->name('learning_enviroment.destroy'); 
+    Route::get('/reports' , [LearningEnviromentController::class, 'reports'])->name('learning_enviroment.reports');
+     Route::post('/export_learning_enviroment' , [LearningEnviromentController::class, 'export_learning_enviroments'])->name('reports.learning_enviroments');
 
-});
+    });
 
 Route::middleware('auth')->prefix('course')->group(function(){
     Route::get('/index', [CourseController::class, 'index'])->name('course.index');
@@ -106,7 +108,11 @@ Route::middleware('auth')->prefix('instructor')->group(function(){
     Route::post('/create', [InstructorController::class, 'store'])->name('instructor.store'); //se usa post en la ruta store para almacenar registros nuevos
     Route::put('/edit/{document}', [InstructorController::class, 'update'])->name('instructor.update'); //se usa put en la ruta update para actualizar registros
     Route::get('/destroy/{document}', [InstructorController::class, 'destroy'])->name('instructor.destroy'); //se usa get en la ruta destroy para eliminar registros
-    //Route::post('/export_orders', [ReportController::class, 'export_orders'])->name('reports.orders_date');//
 });
+
+// Route::middleware(['auth'])->prefix('reports')->group(function(){
+//     Route::get('/index' , [LearningEnviromentController::class, 'index'])->name('learning_enviroment.reports');
+//     Route::post('/reports' , [LearningEnviromentController::class, 'export_learning_enviroments'])->name('reports.learning_enviroments');
+// });
 
 

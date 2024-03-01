@@ -25,8 +25,8 @@
                     </div>
 
                     <div class="col-lg-4 mb-4">
-                        <label for="career_id">Carrera</label>
-                        <select name="career_id" id="career_id"
+                        <label for="id_careers">Carrera</label>
+                        <select name="id_career" id="id_career"
                         class="form-control" required>
                         @foreach ($careers as $career)
                             <option value="{{ $career['id'] }}">{{ $career['name'] }}
