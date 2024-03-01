@@ -2,7 +2,7 @@
 @section('header', 'Reporte reservas de ambientes')
 @section('content')
     <section id="results">
-     @if ($learning_environments)
+     @if ($learning_enviroments)
          
         <h3>Reservas</h3>
         <table id="ReportTable">
@@ -20,17 +20,17 @@
                  </tr>
             </thead>
             <tbody>
-                @foreach ($learning_environments as $learning_environment)
+                @foreach ($learning_enviroments as $learning_enviroment)
                     <tr>
-                        <td>{{ $learning_environment['id'] }}</td>
-                        <td>{{ $learning_environment['name']}}</td>
-                        <td>{{ $learning_environment['capacity']}}</td>
-                        <td>{{ $learning_environment['area_mt2']}}</td>
-                        <td>{{ $learning_environment['floor']}}</td>
-                        <td>{{ $learning_environment['inventory']}}</td>
-                        <td>{{ $learning_environment->enviroment_type->description}}</td>
-                        <td>{{ $learning_environment->location->name}}</td>
-                        <td>{{ $learning_environment['status']}}</td>
+                        <td>{{ $learning_enviroment['id'] }}</td>
+                        <td>{{ $learning_enviroment['name']}}</td>
+                        <td>{{ $learning_enviroment['capacity']}}</td>
+                        <td>{{ $learning_enviroment['area_mt2']}}</td>
+                        <td>{{ $learning_enviroment['floor']}}</td>
+                        <td>{{ $learning_enviroment['inventory']}}</td>
+                        <td>{{ $learning_enviroment->enviroment_type->description}}</td>
+                        <td>{{ $learning_enviroment->location->name}}</td>
+                        <td>{{ $learning_enviroment['status']}}</td>
                     </tr>
                 @endforeach
             </tbody>

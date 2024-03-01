@@ -9,7 +9,8 @@
         <table width="100%" style="bordercollapse: collapse; border: 1px solid;">
             <th>
                 <div style="text-aling: center">
-                    <img src="{{ asset('img/Logoa3.jpg') }}" alt="logo">
+                    <img src="{{ asset('img/Logoa3.jpg') }}" alt="logo"
+                    height="250px" width="250px">
                 </div>
             </th>
             <th>
@@ -34,7 +35,7 @@
     @yield('content')
 
     <footer id="version_text">
-        <p>Generado por Orderweb 1.0</p>
+        <p>Generado por A3 web 1.0</p>
  </footer>
 
 </body>

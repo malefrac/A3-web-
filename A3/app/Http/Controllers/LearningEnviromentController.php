@@ -64,9 +64,9 @@ class LearningEnviromentController extends Controller
     {
         
            // $enviroment_types = EnviromentType::all();
-            $learnig_enviroments = LearningEnviroment::all();
+            $learning_enviroments = LearningEnviroment::all();
             $data = array(
-            'learning_environments' => $learnig_enviroments,
+            'learning_enviroments' => $learning_enviroments,
             //'enviroment_types' =>  $enviroment_types 
            );
             $pdf = Pdf::loadView('reports.export_learning_enviroment', $data)->setPaper('letter', 'portrait');

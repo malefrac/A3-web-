@@ -109,10 +109,3 @@ Route::middleware('auth')->prefix('instructor')->group(function(){
     Route::put('/edit/{document}', [InstructorController::class, 'update'])->name('instructor.update'); //se usa put en la ruta update para actualizar registros
     Route::get('/destroy/{document}', [InstructorController::class, 'destroy'])->name('instructor.destroy'); //se usa get en la ruta destroy para eliminar registros
 });
-
-// Route::middleware(['auth'])->prefix('reports')->group(function(){
-//     Route::get('/index' , [LearningEnviromentController::class, 'index'])->name('learning_enviroment.reports');
-//     Route::post('/reports' , [LearningEnviromentController::class, 'export_learning_enviroments'])->name('reports.learning_enviroments');
-// });
-
-
