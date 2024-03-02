@@ -91,6 +91,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('scheduling_enviroment.index') }}">Consultar</a>
                         <a class="collapse-item" href="{{ route('scheduling_enviroment.create') }}">Crear</a>
+                        <a class="collapse-item" href="{{ route('scheduling_enviroment.reports') }}">Reportes</a>
                     </div>
                 </div>
             </li>

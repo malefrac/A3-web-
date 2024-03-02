@@ -42,6 +42,14 @@ class SchedulingEnviromentController extends Controller
         return view('scheduling_enviroment.index', compact('scheduling_enviroments'));
     }
 
+
+    public function reports()
+    {
+        $courses = Course::all();
+        $instructors = Instructor::all();
+        return view('scheduling_enviroment.reports', compact('courses', 'instructors'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -56,6 +56,7 @@ Route::middleware('auth')->prefix('scheduling_enviroment')->group(function(){
     Route::post('/create', [SchedulingEnviromentController::class, 'store'])->name('scheduling_enviroment.store'); //se usa post en la ruta store para almacenar registros nuevos
     Route::put('/edit/{id}', [SchedulingEnviromentController::class, 'update'])->name('scheduling_enviroment.update'); //se usa put en la ruta update para actualizar registros
     Route::get('/destroy/{id}', [SchedulingEnviromentController::class, 'destroy'])->name('scheduling_enviroment.destroy'); //se usa get en la ruta destroy para eliminar registros
+    Route::get('/reports', [SchedulingEnviromentController::class, 'reports'])->name('scheduling_enviroment.reports');
 
 });
 
@@ -110,6 +111,12 @@ Route::middleware('auth')->prefix('instructor')->group(function(){
     Route::post('/create', [InstructorController::class, 'store'])->name('instructor.store'); //se usa post en la ruta store para almacenar registros nuevos
     Route::put('/edit/{document}', [InstructorController::class, 'update'])->name('instructor.update'); //se usa put en la ruta update para actualizar registros
     Route::get('/destroy/{document}', [InstructorController::class, 'destroy'])->name('instructor.destroy'); //se usa get en la ruta destroy para eliminar registros
+
+});
+
+Route::middleware('auth')->prefix('reports')->group(function(){
+    Route::post('/export_scheduling_enviroments_by_course', [ReportController::class, 'export_scheduling_enviroments_by_course'])->name('reports.scheduling_enviroments_course');
+    Route::post('/export_scheduling_enviroments_by_instructor', [ReportController::class, 'export_scheduling_enviroments_by_instructor'])->name('reports.scheduling_enviroments_instructor');
 });
 
 Route::middleware('reports')->group(function () {
