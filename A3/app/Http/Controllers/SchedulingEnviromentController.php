@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Instructor;
 use App\Models\LearningEnviroment;
-use App\Models\SchedulingEnviroment;
-use Illuminate\Http\Request; 
+use App\Models\SchedulingEnviroment; 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class SchedulingEnviromentController extends Controller
@@ -58,6 +58,7 @@ class SchedulingEnviromentController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), $this->rules);
         $validator->setAttributeNames($this->traductionAttributes);
         if($validator->fails())

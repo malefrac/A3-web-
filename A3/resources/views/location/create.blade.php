@@ -25,6 +25,7 @@
                     <div class="col-lg-4 mb-4">
                         <label for="status">Estado</label>
                         <select name="status" id="status"
+<<<<<<< Updated upstream
                          class="form-control" required>
                         <option value="">Seleccione</option>
                     @foreach ($status as $status)
@@ -35,6 +36,12 @@
 
                         </select>
                         
+=======
+                        class="form-control" required>
+                        <option value="ACTIVO">ACTIVO</option>
+                        <option value="INACTIVO">INACTIVO</option>
+                        </select>  
+>>>>>>> Stashed changes
                     </div>
                 </div>    
 
