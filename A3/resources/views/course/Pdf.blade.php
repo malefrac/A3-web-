@@ -12,7 +12,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($courses as $course) 
+                    @foreach ($courses as $course)
                         <tr>
                             <td>{{ $course->code }}</td> 
                             <td>{{ $course->career->name }}</td> 

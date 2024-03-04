@@ -60,12 +60,11 @@ class CourseController extends Controller
     public function generatePdf()
     {
         $courses = Course::all();
-        $careers = Career::all()->find('1')->name;
+       $careers = Career::all()->find('1')->name;
 
 
         $data = array(
-            'courses' => $courses
-            ,
+            'courses' => $courses,
             'careers' => $careers
         );
 
